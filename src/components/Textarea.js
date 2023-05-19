@@ -40,7 +40,7 @@ export default function Textarea(props) {
     SetText(e.target.value);
   };
 
-  const [text, SetText] = useState();
+  const [text, SetText] = useState("");
   return (
     <>
       <div className="container">
