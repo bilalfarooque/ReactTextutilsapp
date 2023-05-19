@@ -40,7 +40,7 @@ export default function Textarea(props) {
     SetText(e.target.value);
   };
 
-  const [text, SetText] = useState("Enter your text here");
+  const [text, SetText] = useState();
   return (
     <>
       <div className="container">
@@ -49,7 +49,7 @@ export default function Textarea(props) {
         <div className="mb-2">
           <textarea
             className="form-control"
-            placeholder={text}
+            value={text}
             onChange={onChangeHandler}
             id="mybox"
             rows="8"
