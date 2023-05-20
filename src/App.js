@@ -8,7 +8,6 @@ function App() {
       <Navbar title="TextUtils" firsttab="Home" secondtab="AboutUs" dropdown="More"/>
       <div className="container">
       <Textarea headings="Online Text Editor"/>
-      <About/>
       </div>
     </>
   );

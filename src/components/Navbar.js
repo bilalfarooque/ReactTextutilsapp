@@ -7,7 +7,7 @@ return (
     <>
       <nav
         className="navbar navbar-expand-lg bg-body-tertiary"
-        data-bs-theme="light"
+        data-bs-theme="dark"
       >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
@@ -33,7 +33,7 @@ return (
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="/">
+                <a className="nav-link active" href="/About.js">
                   {props.secondtab}
                 </a>
               </li>
