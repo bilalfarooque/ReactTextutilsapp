@@ -43,7 +43,7 @@ export default function Textarea(props) {
   const [text, SetText] = useState("");
   return (
     <>
-      <div className="container">
+      <div className="container"  style={{color: props.mode==='dark'?'white':'#042743'}}>
         <h1>{props.headings}</h1>
 
         <div className="mb-2">
@@ -72,14 +72,14 @@ export default function Textarea(props) {
         </button>
       </div>
 
-      <div className="container mt-4">
+      <div className="container mt-4"  style={{color: props.mode==='dark'?'white':'#042743'}}>
         <h1>Your Text Summary</h1>
         <p>
           {text.split(" ").length} Words {text.length} Characters
         </p>
         <p>{0.008 * text.split(" ").length} Minutes to read whole text </p>
         <h2>Preview Text</h2>
-        <p>{text}</p>
+        <p>{text.length>0? text : "Enter something  in above text box to preview it"}</p>
       </div>
     </>
   );
