@@ -1,33 +1,48 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import Textarea from './components/Textarea';
-import React, { useState } from 'react';
+import "./App.css";
+import Alert from "./components/Alert";
+import Navbar from "./components/Navbar";
+import Textarea from "./components/Textarea";
+import React, { useState } from "react";
 
+export default function App() {
+  const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
 
-export  default function App() {
-  const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
+  const [alert, setAlert] = useState(null); //alert is object
 
-  const toggleMode = ()=>{
-    if(mode === 'light'){
-      setMode('dark');
-      document.body.style.backgroundColor = '#042743';
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    })
+    setTimeout(() => {
+       setAlert(null);
+    }, 1000);
+  };
+
+  const toggleMode = () => {
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = "#042743";
+      showAlert("Dark mode enabled","success")
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "white";
+      showAlert("Light mode enabled","success")
     }
-    else{
-      setMode('light');
-      document.body.style.backgroundColor = 'white';
-    }
-  }
+  };
+
   return (
     <>
-    {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
-    {/* <Navbar/> */}
-    <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-    <div className="container my-3">
-    <Textarea heading="Enter the text to analyze below" mode={mode}/>
-    </div>
-    </> 
+      {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
+      {/* <Navbar/> */}
+      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+      <Alert alert={alert}/>
+      <div className="container my-3">
+        <Textarea showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />
+      </div>
+    </>
   );
-  }
+}
 
 // import { useState } from "react";
 // import "./App.css";
@@ -58,6 +73,5 @@ export  default function App() {
 //       </>
 //     );
 //   };
-
 
 // export default App;

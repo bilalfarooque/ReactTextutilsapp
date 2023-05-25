@@ -6,12 +6,14 @@ export default function Textarea(props) {
     console.log("UpperCase button clicked");
     let newText = text.toUpperCase();
     SetText(newText);
+    props.showAlert("Converted to uppercase","success")
   };
 
   const handleLowClick = () => {
     console.log("LowerCase button clicked");
     let newText = text.toLowerCase();
     SetText(newText);
+    props.showAlert("Converted to lowercase","success")
   };
 
   const handleSpace = () => {
@@ -20,12 +22,14 @@ export default function Textarea(props) {
     let newText = text.split(/[  ]+/);
     //regex,search for spaces, +means = Matches any string that contains at least one n
     SetText(newText.join(" "));
+    props.showAlert("Removed extra spaces from text","success")
   };
   
   const handleClear = () => {
     console.log("clear");
     let newText = "";
     SetText(newText);
+    props.showAlert("Cleared successfully","success")
   };
 
   const handleCopy = () => {
@@ -33,6 +37,7 @@ export default function Textarea(props) {
     var text = document.getElementById("mybox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to clipboard","success")
   };
 
   const onChangeHandler = (e) => {
