@@ -24,6 +24,10 @@ export default function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#042743";
       showAlert("Dark mode enabled","success")
+      // document.title="TextUtils DarkMode"
+      // setInterval(() => {
+      //   document.title="Download TextUtils now"
+      // }, 2000);
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";

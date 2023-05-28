@@ -79,9 +79,8 @@ export default function Textarea(props) {
 
       <div className="container mt-4"  style={{color: props.mode==='dark'?'white':'#042743'}}>
         <h1>Your Text Summary</h1>
-        <p>
-          {text.split(" ").length} Words {text.length} Characters
-        </p>
+        {/* <p>{text.split(" ").length>1?text.split(" ").length-1 : "0"} Words {text.length} Characters</p> */}
+        <p>{text.trim() === '' ? 0 : text.match(/\S+/g).length} Words {text.length} characters</p>
         <p>{0.008 * text.split(" ").length} Minutes to read whole text </p>
         <h2>Preview Text</h2>
         <p>{text.length>0? text : "Enter something  in above text box to preview it"}</p>
