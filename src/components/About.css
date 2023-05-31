@@ -1,0 +1,30 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .about-content {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+  }
+  .about-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .about-description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .about-content {
+      width: 90%;
+    }
+  }

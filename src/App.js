@@ -1,9 +1,18 @@
 import "./App.css";
 import Alert from "./components/Alert";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import Textarea from "./components/Textarea";
 import React, { useState } from "react";
+import {
+  //createBrowserRouter,
+  //RouterProvider,
+  Route,
+  BrowserRouter as Router,
+  Routes
+} from "react-router-dom";
 
+//react router dom v6 replace switch with routes wrap all in router, import Router as BrowserRouter
 export default function App() {
   const [mode, setMode] = useState("light"); // Whether dark mode is enabled or not
 
@@ -36,17 +45,23 @@ export default function App() {
   };
 
   return (
-    <>
-      {/* <Navbar title="TextUtils" aboutText="About TextUtils" /> */}
-      {/* <Navbar/> */}
-      <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert}/>
-      <div className="container my-3">
-        <Textarea showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />
-      </div>
-    </>
+    
+      <Router>
+        <>
+          <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
+          <Alert alert={alert} />
+         {/* exact says to match exact path of component */}
+          <Routes>
+            <Route exact path="/" element={<Textarea showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />} />
+            <Route exact path="/about" element={<About mode={mode} />} />
+          </Routes>
+
+        </>
+      </Router>
+    
   );
 }
+
 
 // import { useState } from "react";
 // import "./App.css";
